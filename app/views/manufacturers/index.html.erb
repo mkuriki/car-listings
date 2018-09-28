@@ -1,0 +1,7 @@
+<%= link_to "+ Add a manufacturer", new_manufacturer_path %>
+
+<h2>Manufacturers</h2>
+
+<% @manufacturers.each do |m| %>
+  <%= m.name %> (<%= m.country %>)<br />
+<% end %>

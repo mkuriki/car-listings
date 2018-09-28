@@ -1,0 +1,16 @@
+<%= link_to "+ Add a car", new_car_path %>
+
+<h2>Search Car(s)</h2>
+<%= render 'search' %>
+
+<h2>Cars</h2>
+
+<%= debug @cars.to_sql %>
+
+<% @cars.each do |c| %>
+  <strong><%= c.name %></strong> (<%= c.manufacturer.name %>)<br />
+  <%= c.year %>, <%= c.color %><br />
+  Mileage: <%= c.mileage %><br />
+  Condition: <%= condition(c.year, c.mileage) %> <%#= c.condition %><br />
+  Description: <%= c.description %><br /><br />
+<% end %>

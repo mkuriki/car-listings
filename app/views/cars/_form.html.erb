@@ -1,0 +1,19 @@
+<%= form_for @car do |f| %>
+  <% if @car.errors.any? %>
+    <strong><%= pluralize(@car.errors.count, "error") %> prohibited this car  from being added:</strong>
+    <ul>
+    <% @car.errors.full_messages.each do |m| %>
+      <li><%= m %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+  <label>Manufacturer <%= f.select(:manufacturer_id, Manufacturer.order(:name).all.map { |m| [ m.name, m.id ] }) %></label><br /><br />
+  <label>Name <%= f.text_field :name %></label><br /><br />
+  <label>Color <%= f.text_field :color %></label><br /><br />
+  <label>Year <%= f.text_field :year %></label><br /><br />
+  <label>Mileage <%= f.text_field :mileage %></label><br /><br />
+  <!-- <label>Condition <%#= f.text_field :condition %></label><br /><br /> -->
+  <label>Description <%= f.text_area :description, cols: 30, rows: 5 %></label><br /><br />
+  <%= f.submit %>
+<% end %>

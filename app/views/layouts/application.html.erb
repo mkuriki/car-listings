@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Car Listings</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body>
+    <h1><%= link_to "Car Listings", root_path %></h1>
+
+    <p><%= link_to "All Manufacturers", manufacturers_path %><br />
+    <%= link_to "All Cars", cars_path %></p>
+
+    <% flash.each do |key, value| %>
+      <strong><%= content_tag :div, value, class: "flash #{key}" %></strong>
+    <% end %>
+
+    <%= yield %>
+  </body>
+</html>

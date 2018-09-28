@@ -1,0 +1,14 @@
+<!-- manufacturer, only pull the ones has cars -->
+
+<%= form_tag(cars_path, method: 'get') do %>
+  Manufacturer: <%= select_tag(:manufacturer_id, options_for_select(manufacturer_option), include_blank: true) %>
+  <br />
+  Color: <%= select_tag(:color, options_for_select(color_option), include_blank: true) %>
+  <br />
+  Year: <%= select_tag(:year, options_for_select(year_option), include_blank: true) %>
+  <br />
+  Max. Mileage: <%#= text_field_tag :mileage, params[:mileage] %>
+  <%= select_tag(:mileage, options_for_select(mileage_option)) %>
+  <br />
+  <%= submit_tag "Search Car", name: nil %>
+<% end %>
